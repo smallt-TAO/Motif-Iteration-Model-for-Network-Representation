@@ -51,8 +51,8 @@ matrix5 = [[0, 1], [1, 1]]
 matrix6 = [[1, 0], [0, 1]]
 
 for k_g in [matrix1, matrix2, matrix3, matrix4, matrix5, matrix6]:
-	for i in range(4):
-		kg = kronecker_graphs(k_g, n)
-		kg = matrix_random(kg)
-		kg = matrix_change(kg)
-		imsave("G:\\code_Python\\see_network\\data_kg\\kronecker_{1}_{0}.png".format(i, str(k_g)), kg)
+    for i in range(4):
+        kg = kronecker_graphs(k_g, n)
+        kg = matrix_random(kg)
+        kg = matrix_change(kg)
+        imsave("G:\\code_Python\\see_network\\data_kg\\kronecker_{1}_{0}.png".format(i, str(k_g)), kg)
