@@ -3,13 +3,13 @@ import random
 __author__ = 'Smalltao'
 
 
-def scale_free(size, num, m):
+def scale_free(size, num, m, key_p=1):
     """
-	:param size: size of the matrix.
-	:param num: size of the matrix begin.
-	:param m: size of limit.
-	:return: matrix_b
-	"""
+    :param size: size of the matrix.
+    :param num: size of the matrix begin.
+    :param m: size of limit.
+    :return: matrix_b
+    """
     # init the matrix
     matrix_b = [([0] * size) for si in range(size)]
     for i in range(num):
@@ -35,10 +35,11 @@ def scale_free(size, num, m):
                 p[j] = p[j - 1] + dd[j] / (degree_n + 0.000001)
             for j in range(i):
                 if random.random() < p[j]:
-                    matrix_b[i][j] = 1
-                    matrix_b[j][i] = 1
-                    degree_b[i] += 1
-                    degree_b[j] += 1
-                    dd[j] = 0
-                    break
+                    if random.random() > key_p:
+                        matrix_b[i][j] = 1
+                        matrix_b[j][i] = 1
+                        degree_b[i] += 1
+                        degree_b[j] += 1
+                        dd[j] = 0
+                        break
     return matrix_b
