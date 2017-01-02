@@ -121,7 +121,7 @@ def plot_com():
         list_nodes = [nodes for nodes in partition0.keys() if partition0[nodes] == com]
         nx.draw_networkx_nodes(G, pos, list_nodes, node_size=20, node_color=str(count / size0))
 
-    nx.draw_networkx_edges(G, pos, alpha=0.5)
+    nx.draw_networkx_edges(G, pos, alpha=0.5, label=True)
     plt.show()
 
 
@@ -138,6 +138,7 @@ def main():
     # color the matrix
     matrix_color = color_image(matrix_new, n=len(matrix_new), k=5)
     imsave('demo_color.png', matrix_color)
+    imsave('demo_color.eps', matrix_color)
 
     plot_com()
 
