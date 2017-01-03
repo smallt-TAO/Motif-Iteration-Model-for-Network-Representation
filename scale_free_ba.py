@@ -3,7 +3,7 @@ import random
 __author__ = 'Smalltao'
 
 
-def scale_free(size, num, m, key_p=1):
+def scale_free(size, num, m, key_p=0):
     """
     :param size: size of the matrix.
     :param num: size of the matrix begin.
