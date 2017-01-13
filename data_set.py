@@ -16,7 +16,7 @@ from algorithm import matrix_change
 def find_matrix(size=400, n=200):
     y_label = np.array([0 for i in range(size)])
     x_image = np.zeros((size, 1, n, n))
-    echo = int(size / 150)
+    echo = int(size / 200)
     iter_num = 0
     print("start to make matrix>>>>>>")
     print("small_word>>>>>>>>>")
@@ -33,6 +33,7 @@ def find_matrix(size=400, n=200):
 
     print("normal network>>>>>>>>>>")
     for num in [2, 3, 4, 5, 6]:
+        for si in range(10):
             for ii in range(echo):
                 nn = ncn_word.normal_word(n, num)
                 nn = matrix_random(nn)

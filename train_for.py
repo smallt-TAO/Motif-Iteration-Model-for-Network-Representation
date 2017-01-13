@@ -37,7 +37,7 @@ def build_cnn(input_var=None):
 
     network = lasagne.layers.DenseLayer(
             lasagne.layers.dropout(network, p=.5),
-            num_units=3,
+            num_units=4,
             nonlinearity=lasagne.nonlinearities.softmax)
 
     return network
@@ -133,6 +133,12 @@ def main(model='cnn', num_epochs=10):
     print("Final results:")
     print("  test loss:\t\t\t{:.6f}".format(test_err / test_batches))
     print("  test accuracy:\t\t{:.2f} %".format(test_acc / test_batches * 100))
+
+    # second compute the compress networks
+    pass
+
+    # third community find vision.
+    pass
 
 
 if __name__ == '__main__':
