@@ -6,13 +6,14 @@ from __future__ import print_function
 import scale_free_ba
 import ncn_small_word
 import random_network_er
+import ncn_word
 
 import numpy as np
 from algorithm import matrix_random
 from algorithm import matrix_change
 
 
-def find_matrix(size=300, n=200):
+def find_matrix(size=400, n=200):
     y_label = np.array([0 for i in range(size)])
     x_image = np.zeros((size, 1, n, n))
     echo = int(size / 150)
@@ -25,19 +26,30 @@ def find_matrix(size=300, n=200):
                 ws = ncn_small_word.small_word(n, k, p)
                 ws = matrix_random(ws)
                 ws = matrix_change(ws)
-                y_label[iter_num] = 0
+                y_label[iter_num] = 1
                 x_image[iter_num, :, :, :] = ws
                 iter_num += 1
     print("iter_num = " + str(iter_num))
 
-    print("scale free network")
+    print("normal network>>>>>>>>>>")
+    for num in [2, 3, 4, 5, 6]:
+            for ii in range(echo):
+                nn = ncn_word.normal_word(n, num)
+                nn = matrix_random(nn)
+                nn = matrix_change(nn)
+                y_label[iter_num] = 0
+                x_image[iter_num, :, :, :] = nn
+                iter_num += 1
+    print("iter_num = " + str(iter_num))
+
+    print("scale free network>>>>>>>>>")
     for num in [2, 3, 4, 5, 6]:
         for m in [2, 3, 5, 10, 15, 17, 20, 22, 25, 27]:
             for ii in range(echo):
                 ba = scale_free_ba.scale_free(n, num, m)
                 ba = matrix_random(ba)
                 ba = matrix_change(ba)
-                y_label[iter_num] = 1
+                y_label[iter_num] = 3
                 x_image[iter_num, :, :, :] = ba
                 iter_num += 1
     print("iter_num = " + str(iter_num))

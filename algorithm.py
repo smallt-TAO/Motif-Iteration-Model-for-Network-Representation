@@ -4,6 +4,32 @@ from numpy import *
 import copy
 
 
+def pre_handle(matrix):
+    """
+    For the nn networks better work.
+    :param matrix:
+    :return:
+    """
+    iter_num = 0
+    m = len(matrix)
+    matrix_d = [0] * m
+    for i in range(m):
+        for j in range(m):
+            if matrix[i][j] == 1:
+                matrix_d[i] += 1
+    dict_d = {}
+    for i in range(m):
+        dict_d[i] = matrix_d[i]
+    if max(matrix_d) == min(matrix_d):
+        for i in range(m):
+            for j in range(m):
+                if matrix[i][j] == 0:
+                    matrix[i][i] = 1
+                    matrix[j][i] = 1
+                    return matrix
+    return matrix
+
+
 def matrix_change(matrix):
     m = len(matrix)
     matrix_d = [0] * m
@@ -139,7 +165,19 @@ def matrix_alter1(matrix, max_num, matrix_d):
                         matrix_d_new.append(array_new[l])
                         iter_flag[l] = False
                         break
-        if i == max_num:
+        if i == max_num:  # handle the same d.
+            new_s = array_new[0]
+            for start_i in range(len(array_new) - 1):
+                matrix_d_new.append(new_s)
+                array_new.remove(new_s)
+                for start_j in range(m):
+                    if matrix[new_s][start_j] == 1 and (start_j in array_new):
+                        new_s = start_j
+                        break
+                    if matrix[new_s][start_j] == 0 and (start_j in array_new):
+                        new_s = start_j
+                        break
+
             matrix_d_new.extend(array_new)
 
     return matrix_d_new

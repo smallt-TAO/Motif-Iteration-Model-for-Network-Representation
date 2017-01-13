@@ -58,9 +58,9 @@ def iterate_mini_batches(inputs, targets, batch_size, shuffle=False):
 
 def main(model='cnn', num_epochs=10):
     print("Loading data...")
-    X_train, y_train = data_set.find_matrix(3000, 200)
-    X_val, y_val = data_set.find_matrix(600, 200)
-    X_test, y_test = data_set.find_matrix(300, 200)
+    X_train, y_train = data_set.find_matrix(800, 200)
+    X_val, y_val = data_set.find_matrix(400, 200)
+    X_test, y_test = data_set.find_matrix(400, 200)
 
     input_var = T.tensor4('inputs')
     target_var = T.ivector('targets')
