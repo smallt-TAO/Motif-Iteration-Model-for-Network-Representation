@@ -5,7 +5,6 @@ def small_word(size, k):
     """
     :param size: size of the matrix
     :param k: size of the link limit
-    :param p: size of the possibly
     :return: a small word network
     """
     # init ncn
