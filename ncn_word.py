@@ -1,7 +1,7 @@
 __author__ = 'Smalltao'
 
 
-def small_word(size, k):
+def normal_word(size, k):
     """
     :param size: size of the matrix
     :param k: size of the link limit
