@@ -9,7 +9,7 @@ from scipy.misc import imsave
 import networkx as nx
 import community
 
-from numpy import *
+import numpy as np
 from algorithm01 import matrix_change
 import matplotlib.pyplot as plt
 
@@ -125,6 +125,26 @@ def plot_com():
     plt.show()
 
 
+def gene_data():
+    """
+    gene the data for community text.
+    :return:
+    """
+    matrix0, dict0 = load_data()
+    array0 = dict2array(dict0)
+    array0.append([i for i in range(len(matrix0))])
+    for i in range(len(array0)):
+        matrix_n = [([0] * 50) for si in range(50)]
+        new_len = len(array0[i])
+        start = int(0.5 * (50 - new_len))
+        for j in range(new_len):
+            for k in range(new_len):
+                matrix_n[start + j][start + k] = matrix0[int(array0[i][j])][int(array0[i][k])]
+        np.savetxt("test_data\\{0}.txt".format(str(i)), matrix_n, fmt='%d')
+
+    print len(array0)
+
+
 def main():
     matrix0, dict0 = load_data()
     array0 = dict2array(dict0)
@@ -144,5 +164,5 @@ def main():
 
 
 if __name__ == '__main__':
-    main()
+    gene_data()
 
