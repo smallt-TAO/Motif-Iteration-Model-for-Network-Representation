@@ -93,7 +93,8 @@ def load_text_data(size=5, n=50):
                 (m, n) = (int(line[0]) - 1, int(line[j]) - 1)
                 matrix_data[m][n] = 1
                 matrix_data[n][m] = 1
-            x_image[i, :, :, :] = matrix_data
+        matrix_data = matrix_change(matrix_data)
+        x_image[i, :, :, :] = matrix_data
 
     return x_image
 
@@ -172,8 +173,7 @@ def main(model='cnn', num_epochs=10):
 
     train_fn = theano.function([input_var, target_var], loss, updates=updates, allow_input_downcast=True)
     val_fn = theano.function([input_var, target_var], [test_loss, test_acc], allow_input_downcast=True)
-    prediction_fn = theano.function(
-        input_var, prediction, allow_input_downcast=True, on_unused_input='warn')
+    prediction_fn = theano.function([input_var], prediction, allow_input_downcast=True, on_unused_input='warn')
 
     print("Starting training...")
     for epoch in range(num_epochs):

@@ -84,11 +84,11 @@ def class_compress():
     imsave("demo.png", ba)
     a, b, c = average_feature(ba)
     print (a, c)
-    # degree_distribution(ba)
+    degree_distribution(ba)
 
     after_m = change_matrix(ba, 200)
     imsave("demo001.png", after_m)
-    # degree_distribution(after_m)
+    degree_distribution(after_m)
     a, b, c = average_feature(after_m)
     print (a, c)
 
