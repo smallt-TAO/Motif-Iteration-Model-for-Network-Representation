@@ -62,7 +62,7 @@ def pre_pooling(pre_pooling_matrix, pre_pooling_mul=2):
 def change_matrix(ch_matrix, aim_n=500):
     after_m = ch_matrix
     while len(after_m) >= 2 * aim_n:
-        print "Image so big to pooling first"
+        # print "Image so big to pooling first"
         after_m = pre_pooling(after_m, 2)
 
     return after_m

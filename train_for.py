@@ -7,6 +7,7 @@ __author__ = 'Smalltao'
 
 from __future__ import print_function
 import data_set
+import pre_convolution
 import time
 import numpy as np
 
@@ -58,9 +59,10 @@ def iterate_mini_batches(inputs, targets, batch_size, shuffle=False):
 
 def main(model='cnn', num_epochs=10):
     print("Loading data...")
-    X_train, y_train = data_set.find_matrix(800, 200)
-    X_val, y_val = data_set.find_matrix(400, 200)
-    X_test, y_test = data_set.find_matrix(400, 200)
+    X_train, y_train = data_set.find_matrix(4000, 200)
+    X_val, y_val = data_set.find_matrix(800, 200)
+    X_test, y_test = data_set.find_matrix(800, 200)
+    X_test0, y_test0 = pre_convolution.test_data(800, 200)
 
     input_var = T.tensor4('inputs')
     target_var = T.ivector('targets')
@@ -135,7 +137,19 @@ def main(model='cnn', num_epochs=10):
     print("  test accuracy:\t\t{:.2f} %".format(test_acc / test_batches * 100))
 
     # second compute the compress networks
-    pass
+    test_err = 0
+    test_acc = 0
+    test_batches = 0
+    for batch in iterate_mini_batches(X_test0, y_test0, 50, shuffle=False):
+        inputs, targets = batch
+        err, acc = val_fn(inputs, targets)
+        test_err += err
+        test_acc += acc
+        test_batches += 1
+        print(prediction_fn(inputs, targets))
+    print("Final results0:")
+    print("  test0 loss:\t\t\t{:.6f}".format(test_err / test_batches))
+    print("  test0 accuracy:\t\t{:.2f} %".format(test_acc / test_batches * 100))
 
     # third community find vision.
     pass
