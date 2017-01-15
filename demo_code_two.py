@@ -6,6 +6,7 @@ __author__ = 'Smalltao'
 """
 
 from __future__ import print_function
+from scipy.misc import imsave
 import scale_free_ba
 import ncn_small_word
 import random_network_er
@@ -83,17 +84,15 @@ def load_data_matrix(size=400, n=50):
 
 def load_text_data(size=5, n=50):
     x_image = np.zeros((size, 1, n, n))
-    num = 50
-    matrix_data = [([0] * num) for si in range(num)]
     for i in range(5):
-        fr = open("test_data\\{0}.txt".format(i))
-        for eachLine in fr:
-            line = eachLine.strip().split()
-            for j in range(1, len(line)):
-                (m, n) = (int(line[0]) - 1, int(line[j]) - 1)
-                matrix_data[m][n] = 1
-                matrix_data[n][m] = 1
+        matrix_data = []
+        for l in open("test_data\\{0}.txt".format(i)):
+            row = [int(x) for x in l.split()]
+            if len(row) > 0:
+                matrix_data.append(row)
+        print(matrix_data)
         matrix_data = matrix_change(matrix_data)
+        imsave("test_data\\{0}.png".format(str(i)), matrix_data)
         x_image[i, :, :, :] = matrix_data
 
     return x_image
@@ -223,4 +222,4 @@ def main(model='cnn', num_epochs=10):
 
 
 if __name__ == '__main__':
-    main()
+    i = load_text_data()
