@@ -132,6 +132,7 @@ def gene_data():
     """
     matrix0, dict0 = load_data()
     array0 = dict2array(dict0)
+    print array0
     array0.append([i for i in range(len(matrix0))])
     for i in range(len(array0)):
         matrix_n = [([0] * 50) for si in range(50)]
