@@ -48,15 +48,14 @@ def handle_data(st):
     print "average SP and average C of the real networks is"
     print (a, c)
     print
-    degree_distribution(matrix_data)
 
     # replaced the networks
-    matrix_data = pre_pooling(matrix_data, 2)
-    a, b, c = average_feature(matrix_data)
+    matrix_data0 = pre_pooling(matrix_data, 2)
+    a, b, c = average_feature(matrix_data0)
     print "average SP and average C of the replaced real networks is"
     print (a, c)
     print
-    degree_distribution(matrix_data)
+    degree_distribution(matrix_data, matrix_data0)
 
 
 def handle_data0():
@@ -74,16 +73,14 @@ def handle_data0():
     a, b, c = average_feature(matrix_data)
     print "average SP and average C of the real networks is"
     print (a, c)
-    print
-    degree_distribution(matrix_data)
 
     # replaced the networks
-    matrix_data = pre_pooling(matrix_data, 2)
-    a, b, c = average_feature(matrix_data)
+    matrix_data0 = pre_pooling(matrix_data, 2)
+    a, b, c = average_feature(matrix_data0)
     print "average SP and average C of the replaced real networks is"
     print (a, c)
     print
-    degree_distribution(matrix_data)
+    degree_distribution(matrix_data, matrix_data0)
 
 
 if __name__ == "__main__":
