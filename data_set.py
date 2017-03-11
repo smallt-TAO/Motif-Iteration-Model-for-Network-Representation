@@ -1,7 +1,12 @@
+# !/usr/bin/env python
+# -*- coding: utf-8 -*-
+
 """
   This function for a matrix transfer to a picture.
   __author__ = 'Smalltao'
-  """
+
+  为CNN神经网络提供输入数据。
+"""
 from __future__ import print_function
 import scale_free_ba
 import ncn_small_word

@@ -1,4 +1,10 @@
-#!/usr/bin/python
+# !/usr/bin/env python
+# -*- coding: utf-8 -*-
+
+"""
+本段代码为了将VRAA处理前后的顶点对应关系求出。
+由于后面并没有使用，所以搁置这里。
+"""
 
 from numpy import *
 import copy

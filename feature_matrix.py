@@ -1,5 +1,8 @@
+# !/usr/bin/env python
+# -*- coding: utf-8 -*-
+
 """
-This code for the matrix feature.
+This code for the feature of the network.
 """
 import networkx as nx
 import matplotlib.pyplot as plt

@@ -1,3 +1,6 @@
+# !/usr/bin/env python
+# -*- coding: utf-8 -*-
+
 """
   This time I will check the origin AI for complex networks.
   __author__ = 'Smalltao'

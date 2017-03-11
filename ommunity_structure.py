@@ -1,3 +1,10 @@
+# !/usr/bin/env python
+# -*- coding: utf-8 -*-
+
+"""
+利用算法1进行更多的尝试。
+"""
+
 from scipy.misc import imsave
 import scale_free_ba
 import ncn_small_word

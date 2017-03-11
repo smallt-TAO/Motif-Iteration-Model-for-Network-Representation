@@ -1,3 +1,6 @@
+# !/usr/bin/env python
+# -*- coding: utf-8 -*-
+
 """
 This part code for the big image to small image
 for the social network can be fit for the CNN
@@ -74,21 +77,21 @@ def class_compress():
     :return:
     """
     n = 400  # original size of networks.
-    ba = ncn_small_word.small_word(n, 30, 0.2)
+    ba = ncn_small_word.small_word(n, 20, 0.2)
     # ba = random_network_er.random_network(n, 0.06)
     # ba = scale_free_ba.scale_free(n, 7, 4)
     # ba = ncn_word.normal_word(n, 30)
 
     ba = matrix_random(ba)
     ba = matrix_change(ba)
-    imsave("demo.png", ba)
+    imsave("demo.eps", ba)
     a, b, c = average_feature(ba)
     print (a, c)
-    degree_distribution(ba)
+    # degree_distribution(ba)
 
     after_m = change_matrix(ba, 200)
-    imsave("demo001.png", after_m)
-    degree_distribution(after_m)
+    imsave("demo001.eps", after_m)
+    degree_distribution(ba, after_m)
     a, b, c = average_feature(after_m)
     print (a, c)
 

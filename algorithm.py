@@ -1,4 +1,10 @@
-#!/usr/bin/python
+# !/usr/bin/env python
+# -*- coding: utf-8 -*-
+"""
+This code for algorithm.
+这段代码就是VRAA算法的核心代码。
+
+"""
 
 from numpy import *
 import copy
@@ -7,6 +13,7 @@ import copy
 def pre_handle(matrix):
     """
     For the nn networks better work.
+    该函数为了处理网络替代后违背无向图对应的amb图像性质。
     :param matrix:
     :return:
     """
@@ -31,6 +38,7 @@ def pre_handle(matrix):
 
 
 def matrix_change(matrix):
+    # 该函数是算法的核心函数。
     m = len(matrix)
     matrix_d = [0] * m
     for i in range(m):
@@ -53,6 +61,7 @@ def matrix_change(matrix):
 
 
 def matrix_random(matrix):
+    # 该函数是将网络顶点编号更加的随机。
     m = len(matrix)
     array = [i for i in range(m)]
     random.shuffle(array)
@@ -65,6 +74,7 @@ def matrix_random(matrix):
 
 
 def matrix_alter(array_d, matrix):
+    # 放置环节
     m = len(matrix)
     matrix_v = [array_d[0]]
     flag = True
@@ -84,6 +94,7 @@ def matrix_alter(array_d, matrix):
 
 
 def matrix_alter0(matrix, max_num, matrix_d):
+    # 重新排序的简单版
     m = len(matrix)
     matrix_d_new = []
 
@@ -124,6 +135,7 @@ def matrix_alter0(matrix, max_num, matrix_d):
 
 
 def matrix_alter1(matrix, max_num, matrix_d):
+    # 重新排序的豪华版
     m = len(matrix)
     matrix_d_new = []
     # behind the Point we talked.

@@ -1,13 +1,20 @@
-import math
+# !/usr/bin/env python
+# -*- coding: utf-8 -*-
 
+"""
 __author__ = 'Smalltao'
+
+This code for kronecker graphs generated.
+
+"""
+import math
 
 
 def kronecker_graphs(i_matrix, n):
     """
-	:param i_matrix: init matrix of begin.
-	:param n: iter num of the net work
-	"""
+    :param i_matrix: init matrix of begin.
+    :param n: iter num of the net work
+    """
     # init the matrix
     m = len(i_matrix)
     k = int(math.log(n, m))

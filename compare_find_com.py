@@ -1,6 +1,11 @@
+# !/usr/bin/env python
+# -*- coding: utf-8 -*-
+
 """
 __author__ = 'Smalltao'
 This code for compare of diff find-communities.
+
+有关复杂网络中社区发现的有关函数的重新造轮子。
 """
 
 from networkx import read_gml

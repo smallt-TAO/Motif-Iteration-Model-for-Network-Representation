@@ -1,7 +1,11 @@
 # !/usr/bin/env python
+# -*- coding: utf-8 -*-
 
 """
 __author__ = 'Smalltao'
+
+使用Lasagne轻量级的神经网络框架来处理网络对应的amb图像信息。
+并且生成我们的网络类型分类器。
 
 """
 
