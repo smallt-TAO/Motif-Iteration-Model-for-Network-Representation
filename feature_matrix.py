@@ -27,8 +27,11 @@ def degree_distribution(matrix, matrix0):
     degree0 = nx.degree_histogram(G0)  # return all point degree distribution seq
     degree_x0 = range(len(degree0))
     degree_y0 = [z / float(sum(degree0)) for z in degree0]  # Convert frequency to frequency
-    plt.loglog(degree_x, degree_y, color="red", linewidth=2)  # Institutional distribution curve
-    plt.loglog(degree_x0, degree_y0, color="blue", linewidth=2)  # Institutional distribution curve
+    plt.loglog(degree_x, degree_y, color="red", linewidth=2, label="Origin")
+    # Institutional distribution curve
+    plt.loglog(degree_x0, degree_y0, color="blue", linewidth=2, ls="--", label="After")
+    # Institutional distribution curve
+    plt.legend()
     plt.xlabel("Degree")
     plt.ylabel("Degree distribution")
     plt.show()
