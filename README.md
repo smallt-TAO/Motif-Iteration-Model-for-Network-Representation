@@ -1,6 +1,6 @@
 # Motif-Iteration-Model-for-Network-Representation
 
-This code is designed for <<Motif Iteration Model for Network Representation>>.
+This code is designed for "Motif Iteration Model for Network Representation".
 
 Abstract. Social media mining has become one of the most popular research
 areas in Big Data with the explosion of social networking information
