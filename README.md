@@ -2,7 +2,8 @@
 
 This code is designed for "Motif Iteration Model for Network Representation".
 
-Abstract. Social media mining has become one of the most popular research
+## Abstract：
+Social media mining has become one of the most popular research
 areas in Big Data with the explosion of social networking information
 from Facebook, Twitter, LinkedIn, Weibo and so on. Understanding
 and representing the structure of a social network is a key in social media
@@ -17,3 +18,14 @@ binary image, it shows a new perspective of network structure visualization.
 In summary, this model provides a useful approach towards building
 link between images and networks and offers a new way of representing
 the structure of a social network.
+
+## How to run.
+
+`python demo_code_one.py`
+
+`python demo_code_two.py`
+
+## Required
+
+Lasagne
+networkx
